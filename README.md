@@ -2,32 +2,33 @@
 
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3-brightgreen)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 
-API REST CRUD para gerenciamento de tarefas.
+Aplicação Full-Stack com API REST CRUD e interface web para gerenciamento de tarefas.
 
 ## Sobre
 
-API simples e bem estruturada para criar, listar, atualizar o status e excluir tarefas. Construída com **Java** e **Spring Boot**, seguindo a separação em camadas (`Controller` → `Service` → `Repository`).
+Uma solução simples e bem estruturada para criar, listar, atualizar o status e excluir tarefas. O backend foi construído com **Java** e **Spring Boot** (seguindo a separação em camadas `Controller` → `Service` → `Repository`), enquanto o frontend é servido diretamente pela aplicação através da pasta estática, utilizando HTML, CSS e JavaScript Vanilla.
 
 ## Funcionalidades
 
+- Interface web amigável e responsiva integrada ao servidor
 - Criar tarefa
 - Listar tarefas
 - Buscar tarefa por ID
-- Atualizar status da tarefa
+- Atualizar status da tarefa (PENDING, IN_PROGRESS, DONE)
 - Excluir tarefa
-- Validação de entrada com mensagens em português
+- Validação de entrada com mensagens em português no backend
 - Tratamento global de erros com respostas padronizadas
-- Documentação interativa com Swagger UI / OpenAPI
+- Documentação interativa da API com Swagger UI / OpenAPI
 
 ## Stack
 
-- **Java 17**
-- **Spring Boot 3.3**
-- **Spring Data JPA**
-- **H2 Database** (banco local em arquivo, persiste entre execuções)
-- **MySQL** (opcional, via profile)
-- **Bean Validation**
+- **Backend:** Java 17, Spring Boot 3.3, Spring Data JPA, Bean Validation
+- **Frontend:** HTML5, CSS3, JavaScript (Vanilla)
+- **Banco de Dados:** H2 Database (banco local em arquivo, persiste entre execuções) / MySQL (opcional, via profile)
 
 ---
 
@@ -37,66 +38,5 @@ API simples e bem estruturada para criar, listar, atualizar o status e excluir t
 
 Para rodar com o banco H2 padrão, execute na raiz do projeto:
 
+```bash
 mvn spring-boot:run
-
-A API subirá em http://localhost:8080. O banco H2 é criado automaticamente na pasta ./data/tododb.
-
-**Acesso ao Console do H2 (visualizar dados no browser):**
-- **URL:** http://localhost:8080/h2-console
-- **JDBC URL:** jdbc:h2:file:./data/tododb
-- **Usuário:** sa
-- **Senha:** (deixe em branco)
-
-### Usando MySQL em vez de H2
-
-1. Crie o banco de dados no seu MySQL: CREATE DATABASE tododb;
-2. Ajuste o usuário e senha no arquivo application-mysql.properties.
-3. Rode o projeto ativando o profile do MySQL:
-
-mvn spring-boot:run -Dspring-boot.run.profiles=mysql
-
----
-
-## Documentação da API (Swagger)
-
-A API possui documentação interativa gerada automaticamente pelo **Swagger (OpenAPI)**. Através dela, é possível visualizar os esquemas de dados e testar todos os endpoints diretamente pelo navegador.
-
-Para acessar, rode a aplicação localmente e abra a seguinte URL:
-- http://localhost:8080/swagger-ui.html
-
----
-
-## Endpoints
-
-| Método | Rota | Descrição |
-|---|---|---|
-| `POST` | `/api/tasks` | Cria uma nova tarefa |
-| `GET` | `/api/tasks` | Lista todas as tarefas |
-| `GET` | `/api/tasks/{id}` | Busca uma tarefa por ID |
-| `PATCH` | `/api/tasks/{id}/status` | Atualiza o status da tarefa |
-| `DELETE` | `/api/tasks/{id}` | Exclui uma tarefa |
-
-### Exemplos de Requisição
-
-**Criar tarefa** (`POST /api/tasks`)
-
-{
-  "title": "Estudar Spring Boot",
-  "description": "Revisar conceitos de JPA e validação"
-}
-
-**Atualizar status** (`PATCH /api/tasks/1/status`)
-
-{
-  "status": "DONE"
-}
-
-*Valores possíveis:* PENDING, IN_PROGRESS, DONE
-
----
-
-## Estrutura do Projeto
-
-src/main/java/com/gabrielteramae/todoapi/
-├── controller/     # endpoints REST
-├── dto/            # objetos de request
