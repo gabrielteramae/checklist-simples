@@ -18,6 +18,7 @@ API simples e bem estruturada para criar, listar, atualizar o status e excluir t
 - Excluir tarefa
 - Validação de entrada com mensagens em português
 - Tratamento global de erros com respostas padronizadas
+- Documentação interativa com Swagger UI / OpenAPI
 
 ## Stack
 
@@ -56,6 +57,15 @@ mvn spring-boot:run -Dspring-boot.run.profiles=mysql
 
 ---
 
+## Documentação da API (Swagger)
+
+A API possui documentação interativa gerada automaticamente pelo **Swagger (OpenAPI)**. Através dela, é possível visualizar os esquemas de dados e testar todos os endpoints diretamente pelo navegador.
+
+Para acessar, rode a aplicação localmente e abra a seguinte URL:
+- http://localhost:8080/swagger-ui.html
+
+---
+
 ## Endpoints
 
 | Método | Rota | Descrição |
@@ -89,8 +99,4 @@ mvn spring-boot:run -Dspring-boot.run.profiles=mysql
 
 src/main/java/com/gabrielteramae/todoapi/
 ├── controller/     # endpoints REST
-├── dto/            # objetos de request e response
-├── exception/      # exceções customizadas e handler global
-├── model/          # entidade Task e enum TaskStatus
-├── repository/     # interface JPA
-└── service/        # regras de negócio
+├── dto/            # objetos de request
