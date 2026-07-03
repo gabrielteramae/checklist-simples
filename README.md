@@ -1,4 +1,4 @@
-# To-Do List API
+# Checklist Simples em Java
 
 API REST CRUD para gerenciamento de tarefas.
 
