@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicativo de lista de tarefas integrado com API REST em Spring Boot.">
+    <meta name="author" content="Gabriel Teramae Chan">
+    <meta name="keywords" content="todo, tarefas, api, spring boot, java, javascript, html, css">
+    <meta name="theme-color" content="#28a745">
+
+    <meta property="og:title" content="Minhas Tarefas - To-Do App">
+    <meta property="og:description" content="Gerencie suas tarefas diárias com esta interface web.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seusite.com">
+    <meta property="og:image" content="https://seusite.com/preview.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Minhas Tarefas - To-Do App">
+    <meta name="twitter:description" content="Gerencie suas tarefas diárias com esta interface web.">
+
+    <title>Minhas Tarefas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Minhas Tarefas</h1>
+
+        <div class="input-group">
+            <input type="text" id="taskTitle" placeholder="Digite uma nova tarefa...">
+            <button onclick="createTask()">Adicionar</button>
+        </div>
+
+        <ul class="task-list" id="taskList">
+        </ul>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

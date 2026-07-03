@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/tasks")
+@CrossOrigin("*") // <-- Permite que o seu HTML acesse a API
 public class TaskController {
 
     private final TaskService service;
