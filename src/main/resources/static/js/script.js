@@ -1,3 +1,11 @@
+function escapeHtml(value) {
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+}
+
 const API_URL = 'http://localhost:8080/api/tasks';
 
 window.onload = loadTasks;
@@ -13,7 +21,7 @@ async function loadTasks() {
         li.className = `task-item ${task.status}`;
 
         li.innerHTML = `
-            <span>${task.title}</span>
+            <span>${escapeHtml(task.title)}</span>
             <div>
                 ${task.status !== 'DONE' ? `<button class="btn-done" onclick="completeTask(${task.id})">Concluir</button>` : ''}
                 <button class="btn-delete" onclick="deleteTask(${task.id})">Excluir</button>
