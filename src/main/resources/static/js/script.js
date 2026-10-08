@@ -37,11 +37,16 @@ async function createTask() {
 
     if (!title) return alert("Digite um título!");
 
-    await fetch(API_URL, {
+    const response = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: title, description: "" })
     });
+
+    if (!response.ok) {
+        alert("Não foi possível salvar a tarefa.");
+        return;
+    }
 
     titleInput.value = '';
     loadTasks();
