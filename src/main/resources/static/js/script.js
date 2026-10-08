@@ -53,15 +53,23 @@ async function createTask() {
 }
 
 async function completeTask(id) {
-    await fetch(`${API_URL}/${id}/status`, {
+    const response = await fetch(`${API_URL}/${id}/status`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: "DONE" })
     });
+    if (!response.ok) {
+        alert("Não foi possível concluir a tarefa.");
+        return;
+    }
     loadTasks();
 }
 
 async function deleteTask(id) {
-    await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+    const response = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+    if (!response.ok) {
+        alert("Não foi possível excluir a tarefa.");
+        return;
+    }
     loadTasks();
 }
